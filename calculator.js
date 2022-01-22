@@ -16,7 +16,6 @@ function clear() {
 }
 
 document.querySelector(".ac").onclick = clear();
-
 document.querySelector(".buttons").onclick = (event) => {
     if (!event.target.classList.contains("btn")) {
         return;
@@ -34,7 +33,9 @@ document.querySelector(".buttons").onclick = (event) => {
             sout.textContent = num1;
         }
         else if (num1 !== "" && num2 !== "" && finish) {
-
+            num2 = key;
+            finish = false;
+            sout.textContent = num2;
         } else {
             num2 += key;
             sout.textContent = num2;
@@ -49,18 +50,48 @@ document.querySelector(".buttons").onclick = (event) => {
         switch (sign){
             case "+":
                 num1 = (+num1) + (+num2);
+                num2 = "";
                 break;
             case "-":
                 num1 = num1 - num2;
+                num2 = "";
                 break;
             case "X":
                 num1 = num1 * num2;
+                num2 = "";
                 break;
             case "/":
+                if (num2 === 0) {
+                    sout.textContent = "Ошибка";
+                    num1 = "";
+                    num2 = "";
+                    sign = "";
+                    return;
+                }
                 num1 = num1 / num2;
+                num2 = "";
                 break;
         }
         finish = true;
         sout.textContent = num1;
+    }
+    function back() {
+        if (num2 === "") {
+            num1 = Math.floor(num1 / 10);
+            sout.textContent = num1;
+        }
+        else if (num1 !== "" && num2 !== "" && finish) {
+            num2 = key;
+            finish = false;
+            sout.textContent = num2;
+        }
+        else {
+            num2 = Math.floor(num2 / 10);
+            sout.textContent = num2;
+        }
+    }
+
+    if (key === "bc") {
+        back();
     }
 }

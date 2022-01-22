@@ -37,6 +37,16 @@
     width: 100%;
     border-radius: 34px;
 }
+.btn.ac {
+    grid-area: ac;
+    width: 100%;
+    border-radius: 34px;
+}
+.btn.division {
+    grid-area: division;
+    width: 100%;
+    border-radius: 34px;
+}
 .calc-screen {
     height: 125px;
     padding: 10px;
@@ -52,7 +62,7 @@
 }
 .buttons {
     display: grid;
-    grid-template-areas: "ac plus_min percent division"
+    grid-template-areas: "ac ac back division"
     "seven eight nine multiply"
     "four five six minus"
     "one two three plus"
