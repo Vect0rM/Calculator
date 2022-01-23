@@ -98,7 +98,7 @@ function cc(e) {
    Calculator(key);
 }
 
-document.querySelector(".ac").onclick = clear();
+document.querySelector(".ac").onclick = clear;
 document.addEventListener("keypress", cc)
 
 document.querySelector(".buttons").onclick = (event) => {
